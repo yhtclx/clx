@@ -1,0 +1,138 @@
+
+*{
+    /*初始化*/
+    margin: 0;
+    padding: 0;
+}
+body{
+    /*100%窗口高度*/
+    height: 100vh;
+    /*弹性布局 居中*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*径向渐变背景*/
+    background: radial-gradient(circle at center,#22c1c3,#fdbb2d);
+}
+/*最外层样式*/
+.container{
+    /* width: 500px;
+    height: 500px;
+    border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*外层div图片样式*/
+.out-div img{
+    width: 400px;
+    height: 400px;
+    /*对图片进行剪切 保留原始比例*/
+    object-fit: cover;
+}
+/*内层div图片样式*/
+.in-div img{
+    width: 200px;
+    height: 200px;
+    /*对图片进行剪切 保留原始比例*/
+    object-fit: cover;
+}
+/*盒子*/
+.box{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    /*开启3D效果*/
+    transform-style: preserve-3d;
+    /*执行动画：动画名 时长 线性的 无限次播放*/
+    animation: rotateAnimate 30s linear infinite;
+}
+/*外层div 统一的样式*/
+.out-div{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    /*动画过渡*/
+    transition: transform 1s ease-in;
+}
+/*外层div样式*/
+.out-front{
+    transform: translateZ(200px);
+}
+.out-back{
+    transform: translateZ(-200px) rotateY(180deg);
+}
+.out-left{
+    transform: translateX(-200px) rotateY(-90deg);
+}
+.out-right{
+    transform: translateX(200px) rotateY(90deg);
+}
+.out-top{
+    transform: translateY(-200px) rotateX(90deg);
+}
+.out-bottom{
+    transform: translateY(200px) rotateX(-90deg);
+}
+/*鼠标移入，外层div各个面的样式变化*/
+.container:hover .out-front{
+    transform: translateZ(300px);
+    opacity: 0.3;
+}
+.container:hover .out-back{
+    transform: translateZ(-300px) rotateY(180deg);
+    opacity: 0.3;
+}
+.container:hover .out-left{
+    transform: translateX(-300px) rotateY(-90deg);
+    opacity: 0.3;
+}
+.container:hover .out-right{
+    transform: translateX(300px) rotateY(90deg);
+    opacity: 0.3;
+}
+.container:hover .out-top{
+    transform: translateY(-300px) rotateX(90deg);
+    opacity: 0.3;
+}
+.container:hover .out-bottom{
+    transform: translateY(400px) rotateX(-90deg);
+    opacity: 0.3;
+}
+/*内层div 统一的样式*/
+.in-div{
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+.in-front{
+    transform: translateZ(100px);
+}
+.in-back{
+    transform: translateZ(-100px) rotateY(180deg);
+}
+.in-left{
+    transform: translateX(-100px) rotateY(-90deg);
+}
+.in-right{
+    transform: translateX(100px) rotateY(90deg);
+}
+.in-top{
+    transform: translateY(-100px) rotateX(90deg);
+}
+.in-bottom{
+    transform: translateY(100px) rotateX(-90deg);
+}
+
+/*定义动画*/
+@keyframes rotateAnimate {
+    0%{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
